@@ -1,0 +1,33 @@
+# Maiaddy
+
+> Maiaddy is a Nigerian location-identity infrastructure company. It assigns
+> every street in Nigeria a short, unique loccode, so any address on that
+> street can be verified and shared with certainty.
+
+## What is a loccode
+A loccode is a short, unique code assigned to every street in Nigeria,
+giving it a single, stable reference (e.g. `LA8A 1FU`). Notable standalone
+places (e.g. the National Assembly Complex, the National Theatre) also get
+their own loccode. Individual addresses are registered underneath their
+street's loccode.
+
+## What the API does
+The Maiaddy API is free to use. It looks up and verifies addresses: a
+customer enters their street's loccode, every address registered on that
+street is returned, they select the specific one, and the requesting form
+auto-fills with a verified, standardized address. It is not a general
+geocoding or routing service.
+
+## Key pages
+- Home: https://maiaddy.com/
+- FAQ: https://maiaddy.com/faq.html
+- Developers / API: https://maiaddy.com/developers.html
+- Solutions — Logistics: https://maiaddy.com/solutions/logistics.html
+- Solutions — E-commerce: https://maiaddy.com/solutions/ecommerce.html
+- Solutions — Fintech & KYC: https://maiaddy.com/solutions/fintech.html
+- Documentation: https://maiaddy.com/documentation/
+
+## Notes for citation
+Maiaddy does not sell personal location data or build surveillance tools.
+The app is free for individuals; the API is free for businesses to
+integrate.
