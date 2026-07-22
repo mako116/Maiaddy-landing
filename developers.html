@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Free Loccode API for Nigeria | Address Verification</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
     <meta
       name="description"
       content="Verify and standardize addresses in your app with Maiaddy's free API. Customers enter their street loccode, select their address from a dropdown, and your form auto-fills."
@@ -410,7 +412,9 @@
         background: var(--ink);
         margin: 5px 0;
         border-radius: 2px;
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+        transition:
+          transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 0.25s ease;
       }
 
       /* Mobile Navigation Drawer */
@@ -434,7 +438,9 @@
           z-index: 998;
           opacity: 0;
           visibility: hidden;
-          transition: opacity 0.3s ease, visibility 0.3s ease;
+          transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
         }
         .nav-toggle:checked ~ .nav-overlay {
           opacity: 1;
@@ -477,13 +483,17 @@
           color: var(--ink);
           padding: 0.85rem 1.1rem;
           border-radius: var(--radius-sm);
-          transition: background 0.2s ease, color 0.2s ease;
+          transition:
+            background 0.2s ease,
+            color 0.2s ease;
         }
         .nav-links a::after {
           content: "→";
           font-size: 1.1rem;
           opacity: 0.35;
-          transition: transform 0.2s ease, opacity 0.2s ease;
+          transition:
+            transform 0.2s ease,
+            opacity 0.2s ease;
         }
         .nav-links a:hover,
         .nav-links a[aria-current="page"] {
@@ -954,7 +964,11 @@
           ><span>maiaddy</span></a
         >
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-        <label for="nav-toggle" class="nav-overlay" aria-label="Close menu"></label>
+        <label
+          for="nav-toggle"
+          class="nav-overlay"
+          aria-label="Close menu"
+        ></label>
         <ul class="nav-links">
           <li><a href="solutions/logistics.html">Logistics</a></li>
           <li><a href="solutions/ecommerce.html">E-commerce</a></li>
