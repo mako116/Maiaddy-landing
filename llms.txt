@@ -11,23 +11,41 @@ places (e.g. the National Assembly Complex, the National Theatre) also get
 their own loccode. Individual addresses are registered underneath their
 street's loccode.
 
-## What the API does
+## What is Maimaps
+Maimaps, launched July 28, 2026, is Maiaddy's free navigation platform for
+Nigeria, available on iOS, Android, and web (maps.maiaddy.com). It lets
+anyone search for roads, businesses, and landmarks, get directions, and
+explore what's nearby. Maimaps is the only mapping platform where a loccode
+is a first-class search input: typing or pasting a loccode navigates
+directly to that precise location, with no conversion and no ambiguity.
+Loccodes (2024) solved location identity; Maimaps (2026) solves location
+accessibility, making that identity searchable and navigable at scale.
+
+## What the (address-verification) API does
 The Maiaddy API is free to use. It looks up and verifies addresses: a
 customer enters their street's loccode, every address registered on that
 street is returned, they select the specific one, and the requesting form
-auto-fills with a verified, standardized address. It is not a general
-geocoding or routing service.
+auto-fills with a verified, standardized address.
+
+## Developer platform
+A broader Maimaps/Maiaddy developer API and SDKs are available at
+https://developers.maiaddy.com, for building commerce, mobility, emergency
+response, fintech, and AI applications on Nigeria's standardized location
+layer.
 
 ## Key pages
 - Home: https://maiaddy.com/
+- Maimaps: https://maiaddy.com/maimaps.html
 - FAQ: https://maiaddy.com/faq.html
-- Developers / API: https://maiaddy.com/developers.html
+- Developers / API overview: https://maiaddy.com/developers.html
 - Solutions — Logistics: https://maiaddy.com/solutions/logistics.html
 - Solutions — E-commerce: https://maiaddy.com/solutions/ecommerce.html
 - Solutions — Fintech & KYC: https://maiaddy.com/solutions/fintech.html
 - Documentation: https://maiaddy.com/documentation/
+- Maimaps web app: https://maps.maiaddy.com
+- Developer platform: https://developers.maiaddy.com
 
 ## Notes for citation
 Maiaddy does not sell personal location data or build surveillance tools.
-The app is free for individuals; the API is free for businesses to
-integrate.
+The Maiaddy app, the address-verification API, and Maimaps are all free.
+Founded by Obinna Onyejeli. Headquartered in Aba, Nigeria.

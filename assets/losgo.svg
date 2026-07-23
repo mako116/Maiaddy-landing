@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360">
+<clipPath id="mm-arch-clip"><rect x="0" y="0" width="300" height="172"/></clipPath>
+<circle cx="150" cy="150" r="90" fill="none" stroke="#6FA5F6" stroke-width="54" clip-path="url(#mm-arch-clip)"/>
+<path d="M62,172 L150,208 L238,172 L150,332 Z" fill="#6E38DF"/>
+</svg>

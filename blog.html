@@ -19,7 +19,10 @@
       content="Explore insights, product updates, engineering deep dives, and logistics case studies from Maiaddy — building Nigeria's location identity infrastructure."
     />
     <meta property="og:url" content="https://maiaddy.com/blog.html" />
-    <meta property="og:image" content="https://maiaddy.com/assets/og-image.png" />
+    <meta
+      property="og:image"
+      content="https://maiaddy.com/assets/og-image.png"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#4C4CFA" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,12 +32,6 @@
       rel="stylesheet"
     />
     <style>
-      /* ============================================================
-   MAIADDY DESIGN SYSTEM
-   Display: Space Grotesk — geometric grotesk, echoes the sharp corner-bracket logomark
-   Body:    Inter — neutral, disappears into long-form reading
-   Mono:    IBM Plex Mono — used only for loccodes, signals "this is infrastructure, not decoration"
-   ============================================================ */
       :root {
         --bg: #f5f8fe; /* Platinum */
         --bg-white: #ffffff;
@@ -193,7 +190,11 @@
         }
       }
       .grad-text {
-        background: linear-gradient(100deg, var(--primary-deep), var(--primary));
+        background: linear-gradient(
+          100deg,
+          var(--primary-deep),
+          var(--primary)
+        );
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -212,7 +213,10 @@
         border-radius: var(--radius-pill);
         border: 2px solid transparent;
         cursor: pointer;
-        transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          background 0.15s ease;
         text-decoration: none;
       }
       .btn:hover {
@@ -273,26 +277,19 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(245, 248, 254, 0.92);
-        border-bottom: 1px solid rgba(1, 25, 54, 0.07);
-      }
-      header.site::before {
-        content: "";
-        position: absolute;
-        inset: 0;
         background: rgba(245, 248, 254, 0.86);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        z-index: -1;
-        pointer-events: none;
+        border-bottom: 1px solid rgba(1, 25, 54, 0.07);
       }
       .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem var(--s3);
+        padding: 0.85rem var(--s3);
         max-width: var(--max);
         margin: 0 auto;
+        gap: 1rem;
         position: relative;
       }
       .brand {
@@ -303,7 +300,7 @@
         font-weight: 700;
         font-size: 1.2rem;
         color: var(--ink);
-        z-index: 101;
+        flex-shrink: 0;
       }
       .brand svg {
         width: 34px;
@@ -312,7 +309,7 @@
       .nav-links {
         display: flex;
         align-items: center;
-        gap: var(--s4);
+        gap: 1.4rem;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -321,8 +318,11 @@
         color: var(--ink-soft);
         font-weight: 500;
         font-size: 0.96rem;
+        white-space: nowrap;
+        transition: color 0.15s ease;
       }
-      .nav-links a:hover {
+      .nav-links a:hover,
+      .nav-links a[aria-current="page"] {
         color: var(--primary-deep);
         text-decoration: none;
       }
@@ -330,7 +330,10 @@
         display: flex;
         align-items: center;
         gap: var(--s2);
-        z-index: 1001;
+        flex-shrink: 0;
+      }
+      .btn-header-cta {
+        white-space: nowrap;
       }
       .nav-toggle {
         display: none;
@@ -347,8 +350,6 @@
         padding: 0.4em;
         background: transparent;
         border: none;
-        z-index: 1001;
-        position: relative;
       }
       .hamburger span {
         display: block;
@@ -360,25 +361,23 @@
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
       }
 
-      /* Mobile Navigation Drawer */
-      @media (max-width: 900px) {
-        .nav-cta .btn-primary {
-          display: none !important;
+      /* Mobile Navigation Drawer & Overlay */
+      @media (max-width: 1024px) {
+        .btn-header-cta {
+          font-size: 0.82rem;
+          padding: 0.5em 0.95em;
         }
         .nav-overlay {
           display: block;
           position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          inset: 0;
           width: 100vw;
           height: 100vh;
           height: 100dvh;
           background: rgba(1, 25, 54, 0.45);
           backdrop-filter: blur(6px);
           -webkit-backdrop-filter: blur(6px);
-          z-index: 998;
+          z-index: 1000;
           opacity: 0;
           visibility: hidden;
           transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -399,12 +398,12 @@
           flex-direction: column;
           justify-content: flex-start;
           align-items: stretch;
-          padding: 5rem 1.5rem 2.5rem;
-          gap: 0.4rem;
+          padding: 5rem 1.25rem 2rem;
+          gap: 0.35rem;
           transform: translateX(100%);
           transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
           box-shadow: -15px 0 45px rgba(1, 25, 54, 0.2);
-          z-index: 999;
+          z-index: 1005;
           border-left: 1px solid rgba(1, 25, 54, 0.08);
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
@@ -419,11 +418,11 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          font-size: 1.05rem;
+          font-size: 1.02rem;
           font-weight: 600;
           color: var(--ink);
-          padding: 0.85rem 1.1rem;
-          border-radius: var(--radius-sm);
+          padding: 0.8rem 1rem;
+          border-radius: var(--radius-sm, 8px);
           transition: background 0.2s ease, color 0.2s ease;
         }
         .nav-links a::after {
@@ -465,6 +464,8 @@
         }
         .hamburger {
           display: block;
+          position: relative;
+          z-index: 1010;
         }
         .nav-toggle:checked ~ .nav-cta .hamburger span:nth-child(1) {
           transform: translateY(7px) rotate(45deg);
@@ -475,6 +476,11 @@
         }
         .nav-toggle:checked ~ .nav-cta .hamburger span:nth-child(3) {
           transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+      @media (max-width: 560px) {
+        .btn-header-cta {
+          display: none;
         }
       }
 
@@ -547,7 +553,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
       .blog-card:hover {
         transform: translateY(-4px);
@@ -601,7 +609,12 @@
 
       /* ---------- CTA band ---------- */
       .cta-band {
-        background: linear-gradient(120deg, var(--primary-deep), var(--primary) 65%, var(--primary-light));
+        background: linear-gradient(
+          120deg,
+          var(--primary-deep),
+          var(--primary) 65%,
+          var(--primary-light)
+        );
         border-radius: var(--radius-lg);
         padding: var(--s5);
         color: #fff;
@@ -695,7 +708,12 @@
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(255, 255, 255, 0.12);
         color: rgba(255, 255, 255, 0.75);
-        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          box-shadow 0.2s ease;
       }
       .social-box:hover {
         background: var(--primary);
@@ -731,30 +749,84 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site">
       <nav class="nav">
-        <a class="brand" href="index.html"
+        <a class="brand" href="./index.html"
           ><svg viewBox="0 0 600 600" role="img" aria-label="Maiaddy logo">
-            <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="var(--primary-deep)" />
-            <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="var(--primary-deep)" transform="rotate(90 300 300)" />
-            <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="var(--primary-deep)" transform="rotate(180 300 300)" />
-            <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="var(--primary-deep)" transform="rotate(270 300 300)" />
-            <circle cx="300" cy="300" r="120" fill="none" stroke="var(--primary-light)" stroke-width="60" /></svg
+            <path
+              d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+              fill="var(--primary-deep)"
+            />
+            <path
+              d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+              fill="var(--primary-deep)"
+              transform="rotate(90 300 300)"
+            />
+            <path
+              d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+              fill="var(--primary-deep)"
+              transform="rotate(180 300 300)"
+            />
+            <path
+              d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+              fill="var(--primary-deep)"
+              transform="rotate(270 300 300)"
+            />
+            <circle
+              cx="300"
+              cy="300"
+              r="120"
+              fill="none"
+              stroke="var(--primary-light)"
+              stroke-width="60"
+            /></svg
           ><span>maiaddy</span></a
         >
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-        <label for="nav-toggle" class="nav-overlay" aria-label="Close menu"></label>
+        <label
+          for="nav-toggle"
+          class="nav-overlay"
+          aria-label="Close menu"
+        ></label>
         <ul class="nav-links">
-          <li><a href="solutions/logistics.html">Logistics</a></li>
-          <li><a href="solutions/ecommerce.html">E-commerce</a></li>
-          <li><a href="solutions/fintech.html">Fintech</a></li>
-          <li><a href="developers.html">Developers</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li>
+            <a href="./maimaps.html"
+              >Maimaps
+              <span
+                class="badge-new"
+                style="
+                  display: inline-block;
+                  font-family: var(--font-mono);
+                  font-size: 0.65rem;
+                  font-weight: 600;
+                  background: var(--coral);
+                  color: #fff;
+                  padding: 0.15em 0.5em;
+                  border-radius: 999px;
+                "
+                >New</span
+              ></a
+            >
+          </li>
+          <li><a href="./solutions/logistics.html">Logistics</a></li>
+          <li><a href="./solutions/ecommerce.html">E-commerce</a></li>
+          <li><a href="./solutions/fintech.html">Fintech</a></li>
+          <li><a href="./developers.html">Developers</a></li>
+          <li><a href="./faq.html">FAQ</a></li>
+          <li><a href="./about.html">About</a></li>
           <li class="nav-mobile-cta">
-            <a class="btn btn-primary" href="#">Get Your Loccode</a>
+            <a class="btn btn-primary" href="./get-loccode.html"
+              >Get Your Loccode</a
+            >
           </li>
         </ul>
         <div class="nav-cta">
-          <a class="btn btn-primary" href="#">Get Your Loccode</a>
-          <label class="hamburger" for="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
+          <a
+            class="btn btn-primary btn-header-cta"
+            href="./get-loccode.html"
+            >Get Your Loccode</a
+          >
+          <label class="hamburger" for="nav-toggle" aria-label="Open menu"
+            ><span></span><span></span><span></span
+          ></label>
         </div>
       </nav>
     </header>
@@ -762,11 +834,15 @@
     <main id="main">
       <section class="page-hero">
         <div class="wrap">
-          <p class="breadcrumb"><a href="index.html">Home</a> / Company / Blog</p>
+          <p class="breadcrumb">
+            <a href="./index.html">Home</a> / Company / Blog
+          </p>
           <p class="eyebrow">Insights &amp; Product Stories</p>
           <h1>Building the address infrastructure for Nigeria.</h1>
           <p class="lead" style="max-width: 58ch">
-            Read how Maiaddy's loccode mobile app, geospatial algorithms, and API infrastructure are cutting failed deliveries, streamling KYC, and connecting every street in Nigeria.
+            Read how Maiaddy's loccode mobile app, geospatial algorithms, and
+            API infrastructure are cutting failed deliveries, streamling KYC,
+            and connecting every street in Nigeria.
           </p>
         </div>
       </section>
@@ -777,22 +853,50 @@
           <div class="featured-card">
             <div>
               <span class="tag">Product Deep Dive</span>
-              <h2>How the Maiaddy App Works: From GPS Coordinates to Verified Loccodes</h2>
+              <h2>
+                How the Maiaddy App Works: From GPS Coordinates to Verified
+                Loccodes
+              </h2>
               <p>
-                Ever wondered how the Maiaddy mobile app assigns a short, shareable 6-character code (like <strong style="font-family: var(--font-mono); color: var(--primary-deep)">LA8A 1FU</strong>) to any street in Nigeria — even without street signs or numbers?
+                Ever wondered how the Maiaddy mobile app assigns a short,
+                shareable 6-character code (like
+                <strong
+                  style="
+                    font-family: var(--font-mono);
+                    color: var(--primary-deep);
+                  "
+                  >LA8A 1FU</strong
+                >) to any street in Nigeria — even without street signs or
+                numbers?
               </p>
               <p>
-                Our mobile app uses device positioning, street boundary geofencing, and deterministic geospatial encoding so anyone can get a reliable digital address in under 5 seconds.
+                Our mobile app uses device positioning, street boundary
+                geofencing, and deterministic geospatial encoding so anyone can
+                get a reliable digital address in under 5 seconds.
               </p>
-              <a href="#how-app-works" class="btn btn-primary" style="margin-top: 0.5em">Read App Guide &rarr;</a>
+              <a
+                href="#how-app-works"
+                class="btn btn-primary"
+                style="margin-top: 0.5em"
+                >Read App Guide &rarr;</a
+              >
             </div>
-            <div style="background: var(--bg); padding: var(--s4); border-radius: var(--radius-md); border: var(--border); text-align: center">
+            <div
+              style="
+                background: var(--bg);
+                padding: var(--s4);
+                border-radius: var(--radius-md);
+                border: var(--border);
+                text-align: center;
+              "
+            >
               <p class="eyebrow" style="margin-bottom: 0.5em">Inside the App</p>
               <div class="loccode" style="margin: 0.8em 0; font-size: 1.1rem">
                 <span class="ring"></span>LA8A 1FU
               </div>
               <p style="font-size: 0.88rem; color: var(--ink-faint); margin: 0">
-                1 Street = 1 Loccode.<br />Doorstep verification made effortless.
+                1 Street = 1 Loccode.<br />Doorstep verification made
+                effortless.
               </p>
             </div>
           </div>
@@ -800,33 +904,48 @@
       </section>
 
       <!-- App Workflow Breakdown -->
-      <section class="section" id="how-app-works" style="background: #ffffff; border-top: var(--border); border-bottom: var(--border)">
+      <section
+        class="section"
+        id="how-app-works"
+        style="
+          background: #ffffff;
+          border-top: var(--border);
+          border-bottom: var(--border);
+        "
+      >
         <div class="wrap">
           <p class="eyebrow">App Walkthrough</p>
           <h2>How the Maiaddy App Works Step-by-Step</h2>
           <p class="lead" style="max-width: 55ch">
-            Designed for simplicity, speed, and accuracy across low-connectivity and informal urban areas.
+            Designed for simplicity, speed, and accuracy across low-connectivity
+            and informal urban areas.
           </p>
           <div class="app-step-grid">
             <div class="app-step">
               <div class="step-num">01</div>
               <h3>Open &amp; Detect Location</h3>
               <p>
-                Open the free Maiaddy app on Android or iOS. The app automatically detects your coordinates using high-precision GPS positioning and maps it against street segment boundaries.
+                Open the free Maiaddy app on Android or iOS. The app
+                automatically detects your coordinates using high-precision GPS
+                positioning and maps it against street segment boundaries.
               </p>
             </div>
             <div class="app-step">
               <div class="step-num">02</div>
               <h3>Instant Loccode Generation</h3>
               <p>
-                Your street is immediately paired with its unique 6-character loccode (e.g. <code>AB2B 4XY</code>). Every street in Nigeria has a loccode, ensuring 100% geographic coverage.
+                Your street is immediately paired with its unique 6-character
+                loccode (e.g. <code>AB2B 4XY</code>). Every street in Nigeria
+                has a loccode, ensuring 100% geographic coverage.
               </p>
             </div>
             <div class="app-step">
               <div class="step-num">03</div>
               <h3>Save &amp; Share Your Address</h3>
               <p>
-                Add your building or unit details underneath the loccode. Share your loccode with delivery drivers, e-commerce stores, or banks for instant, unambiguous address verification.
+                Add your building or unit details underneath the loccode. Share
+                your loccode with delivery drivers, e-commerce stores, or banks
+                for instant, unambiguous address verification.
               </p>
             </div>
           </div>
@@ -842,9 +961,14 @@
             <article class="blog-card">
               <div>
                 <span class="tag">Logistics</span>
-                <h3>Cutting Delivery Calls: How Riders Navigate 40% Faster in Aba &amp; Lagos</h3>
+                <h3>
+                  Cutting Delivery Calls: How Riders Navigate 40% Faster in Aba
+                  &amp; Lagos
+                </h3>
                 <p>
-                  Why traditional directions cost logistics fleets millions in burned fuel and driver phone calls — and how loccodes solve last-mile friction.
+                  Why traditional directions cost logistics fleets millions in
+                  burned fuel and driver phone calls — and how loccodes solve
+                  last-mile friction.
                 </p>
               </div>
               <div class="blog-meta">
@@ -858,7 +982,9 @@
                 <span class="tag">Fintech &amp; KYC</span>
                 <h3>Standardizing Address Verification for Nigerian Banks</h3>
                 <p>
-                  How financial institutions use the Maiaddy free API to verify customer proof of address instantly during onboarding without physical agent visits.
+                  How financial institutions use the Maiaddy free API to verify
+                  customer proof of address instantly during onboarding without
+                  physical agent visits.
                 </p>
               </div>
               <div class="blog-meta">
@@ -870,9 +996,13 @@
             <article class="blog-card">
               <div>
                 <span class="tag">Engineering</span>
-                <h3>Designing Offline-First Address Resolution for Mobile Devices</h3>
+                <h3>
+                  Designing Offline-First Address Resolution for Mobile Devices
+                </h3>
                 <p>
-                  A deep dive into our geospatial indexing algorithm that resolves street loccodes even when cellular connection drops to zero.
+                  A deep dive into our geospatial indexing algorithm that
+                  resolves street loccodes even when cellular connection drops
+                  to zero.
                 </p>
               </div>
               <div class="blog-meta">
@@ -886,7 +1016,9 @@
                 <span class="tag">E-Commerce</span>
                 <h3>Why 6-Character Loccodes Boost Checkout Conversions</h3>
                 <p>
-                  Replacing long multi-line address text fields with auto-filling loccode dropdowns increases checkout completion rate by up to 28%.
+                  Replacing long multi-line address text fields with
+                  auto-filling loccode dropdowns increases checkout completion
+                  rate by up to 28%.
                 </p>
               </div>
               <div class="blog-meta">
@@ -900,7 +1032,8 @@
                 <span class="tag">Community</span>
                 <h3>Street Ambassadors: Mapping Unnamed Alleys in Nigeria</h3>
                 <p>
-                  How local community mapping ambassadors are bringing location identity to informal settlements across Abia and Lagos states.
+                  How local community mapping ambassadors are bringing location
+                  identity to informal settlements across Abia and Lagos states.
                 </p>
               </div>
               <div class="blog-meta">
@@ -912,9 +1045,13 @@
             <article class="blog-card">
               <div>
                 <span class="tag">Product Release</span>
-                <h3>Maiaddy Mobile App v2.4 Released with One-Tap Loccode Share</h3>
+                <h3>
+                  Maiaddy Mobile App v2.4 Released with One-Tap Loccode Share
+                </h3>
                 <p>
-                  Explore new features in the latest mobile update: instant WhatsApp sharing, saved favorite places, and improved offline rendering.
+                  Explore new features in the latest mobile update: instant
+                  WhatsApp sharing, saved favorite places, and improved offline
+                  rendering.
                 </p>
               </div>
               <div class="blog-meta">
@@ -930,10 +1067,20 @@
         <div class="wrap">
           <div class="cta-band">
             <h2>Get your street's loccode today.</h2>
-            <p>Download the free Maiaddy mobile app or integrate the API into your platform.</p>
+            <p>
+              Download the free Maiaddy mobile app or integrate the API into
+              your platform.
+            </p>
             <div class="hero-ctas" style="justify-content: center">
-              <a class="btn btn-on-dark" href="#">Get Your Loccode</a>
-              <a class="btn btn-ghost" style="border-color: rgba(255, 255, 255, 0.5); color: #fff" href="developers.html">View API Docs</a>
+              <a class="btn btn-on-dark" href="./get-loccode.html"
+                >Get Your Loccode</a
+              >
+              <a
+                class="btn btn-ghost"
+                style="border-color: rgba(255, 255, 255, 0.5); color: #fff"
+                href="./developers.html"
+                >View API Docs</a
+              >
             </div>
           </div>
         </div>
@@ -946,58 +1093,210 @@
           <div>
             <div class="foot-brand">
               <svg viewBox="0 0 600 600" role="img" aria-label="Maiaddy logo">
-                <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="#FFFFFF" />
-                <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="#FFFFFF" transform="rotate(90 300 300)" />
-                <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="#FFFFFF" transform="rotate(180 300 300)" />
-                <path d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z" fill="#FFFFFF" transform="rotate(270 300 300)" />
-                <circle cx="300" cy="300" r="120" fill="none" stroke="#6FA5F6" stroke-width="60" /></svg
+                <path
+                  d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+                  fill="#FFFFFF"
+                />
+                <path
+                  d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+                  fill="#FFFFFF"
+                  transform="rotate(90 300 300)"
+                />
+                <path
+                  d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+                  fill="#FFFFFF"
+                  transform="rotate(180 300 300)"
+                />
+                <path
+                  d="M0,0 H240 V90 H150 V150 H90 V240 H0 Z"
+                  fill="#FFFFFF"
+                  transform="rotate(270 300 300)"
+                />
+                <circle
+                  cx="300"
+                  cy="300"
+                  r="120"
+                  fill="none"
+                  stroke="#6FA5F6"
+                  stroke-width="60"
+                /></svg
               ><span>maiaddy</span>
             </div>
             <p class="foot-desc">
-              Maiaddy is a Nigerian location-identity infrastructure company. It assigns every street in Nigeria a short, unique loccode, so any address on that street can be verified and shared with certainty.
+              Maiaddy is a Nigerian location-identity infrastructure company. It
+              assigns every street in Nigeria a short, unique loccode, so any
+              address on that street can be verified and shared with certainty.
             </p>
             <div class="foot-socials">
-              <a href="https://www.instagram.com/maiaddyhq?igsh=MWF5ejY1d3FiMXNodQ==" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Instagram">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <a
+                href="https://www.instagram.com/maiaddyhq?igsh=MWF5ejY1d3FiMXNodQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-box"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
               </a>
-              <a href="https://x.com/maiaddyhq?s=21" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="X (Twitter)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <a
+                href="https://x.com/maiaddyhq?s=21"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-box"
+                aria-label="X (Twitter)"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
               </a>
-              <a href="https://www.linkedin.com/company/maiaddy/" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="LinkedIn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              <a
+                href="https://www.linkedin.com/company/maiaddy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-box"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                  />
+                </svg>
               </a>
-              <a href="https://www.facebook.com/share/1DGdYZp9oS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="Facebook">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <a
+                href="https://www.facebook.com/share/1DGdYZp9oS/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-box"
+                aria-label="Facebook"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
               </a>
-              <a href="https://www.tiktok.com/@maiaddyhq?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="TikTok">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.65 6.34 6.34 0 0 0 9.35 22a6.33 6.33 0 0 0 6.33-6.33V9.18a8.16 8.16 0 0 0 4.91 1.6v-3.6a4.85 4.85 0 0 1-1-.49z"/></svg>
+              <a
+                href="https://www.tiktok.com/@maiaddyhq?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-box"
+                aria-label="TikTok"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.65 6.34 6.34 0 0 0 9.35 22a6.33 6.33 0 0 0 6.33-6.33V9.18a8.16 8.16 0 0 0 4.91 1.6v-3.6a4.85 4.85 0 0 1-1-.49z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://youtube.com/@maiaddyhq?si=NxC0Vm4BKry_PCXk"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-box"
+                aria-label="YouTube"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/MaiaddyHQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-box"
+                aria-label="GitHub"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
               </a>
             </div>
           </div>
           <div>
             <h4>Solutions</h4>
             <ul>
-              <li><a href="solutions/logistics.html">Logistics &amp; Delivery</a></li>
-              <li><a href="solutions/ecommerce.html">E-commerce</a></li>
-              <li><a href="solutions/fintech.html">Fintech &amp; KYC</a></li>
+              <li>
+                <a href="./solutions/logistics.html"
+                  >Logistics &amp; Delivery</a
+                >
+              </li>
+              <li><a href="./solutions/ecommerce.html">E-commerce</a></li>
+              <li><a href="./solutions/fintech.html">Fintech &amp; KYC</a></li>
             </ul>
           </div>
           <div>
             <h4>Developers</h4>
             <ul>
-              <li><a href="developers.html">API Overview</a></li>
-              <li><a href="documentation/">Documentation</a></li>
-              <li><a href="llms.txt">llms.txt</a></li>
+              <li><a href="./developers.html">API Overview</a></li>
+              <li><a href="./documentation">Documentation</a></li>
+              <li><a href="./llms.txt">llms.txt</a></li>
             </ul>
           </div>
           <div>
             <h4>Company</h4>
             <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="community.html">Community</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="mailto:hello@maiaddy.com">Contact</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./blog.html">Blog</a></li>
+              <li><a href="./community.html">Community</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@maiaddy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Contact</a
+                >
+              </li>
             </ul>
           </div>
         </div>
