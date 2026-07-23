@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FAQ | Loccodes, the Maiaddy API & Address Verification</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
     <meta
       name="description"
       content="Answers to common questions about loccodes, how Maiaddy's free API verifies addresses, and how the loccode system works across Nigeria."
@@ -407,7 +409,9 @@
         background: var(--ink);
         margin: 5px 0;
         border-radius: 2px;
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+        transition:
+          transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 0.25s ease;
       }
 
       /* Mobile Navigation Drawer & Overlay */
@@ -429,7 +433,9 @@
           z-index: 1000;
           opacity: 0;
           visibility: hidden;
-          transition: opacity 0.3s ease, visibility 0.3s ease;
+          transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
         }
         .nav-toggle:checked ~ .nav-overlay {
           opacity: 1;
@@ -472,13 +478,17 @@
           color: var(--ink);
           padding: 0.8rem 1rem;
           border-radius: var(--radius-sm, 8px);
-          transition: background 0.2s ease, color 0.2s ease;
+          transition:
+            background 0.2s ease,
+            color 0.2s ease;
         }
         .nav-links a::after {
           content: "→";
           font-size: 1.1rem;
           opacity: 0.35;
-          transition: transform 0.2s ease, opacity 0.2s ease;
+          transition:
+            transform 0.2s ease,
+            opacity 0.2s ease;
         }
         .nav-links a:hover,
         .nav-links a[aria-current="page"] {
@@ -1284,9 +1294,7 @@
           </li>
         </ul>
         <div class="nav-cta">
-          <a
-            class="btn btn-primary btn-header-cta"
-            href="./get-loccode.html"
+          <a class="btn btn-primary btn-header-cta" href="./get-loccode.html"
             >Get Your Loccode</a
           >
           <label class="hamburger" for="nav-toggle" aria-label="Open menu"
